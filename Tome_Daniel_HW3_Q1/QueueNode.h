@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __Q1__
-#define __Q1__
+#ifndef __QUE__
+#define __QUE__
 typedef int queueinfo;
 typedef struct node
 {

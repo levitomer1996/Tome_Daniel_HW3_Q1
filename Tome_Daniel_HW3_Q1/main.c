@@ -4,17 +4,34 @@
 
 
 void main() {
-	int q_length = 0;
+	int n , k;
+	QueueNode* ptr;
 	queueinfo x;
 	printf("Please insert Queue length : \n");
-	scanf_s("%d", &q_length);
+	scanf_s("%d", &n);
+
+	printf("Please insert number of  steps: \n");
+	scanf_s("%d", &k);
 
 	QueueNode* q= createQueue();
-	for (int i = 1; i < q_length +1; i++) {
+	for (int i = 1; i < n + 1; i++) {
 		insert(&q, i);
 	}
 	PrintQueue(q);
-	delafter(q->next, &x);
-	printf(" \n Deleted value: %d\n", x);
-	PrintQueue(q);
+
+	ptr = q;
+	printf("Order of elimination:  ");
+	while (n > 1) {
+		for (int i = 1; i <= k - 1; i++) {
+			ptr = ptr->next;
+		}
+		delafter(ptr, &x);
+		printf("%d ", x);
+		n--;
+	}
+	
+
+	printf("\n");
+	delafter(ptr, &x);
+	printf("Leader is %d", x);
 }

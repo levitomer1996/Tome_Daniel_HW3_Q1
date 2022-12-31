@@ -60,8 +60,14 @@ void delafter(QueueNode* p, queueinfo* x)
 void PrintQueue(QueueNode* Q)
 {
 	QueueNode* current = Q->next;
-	do {
-		printf(" Number is %d \n", current->value);
-		current = current->next;
-	} while (current != Q->next);
+	if (current != NULL) {
+		do {
+			printf(" %d \n", current->value);
+			current = current->next;
+		} while (current != Q->next);
+	}
+	else {
+		printf("%d", Q->value);
+	}
+	
 }
